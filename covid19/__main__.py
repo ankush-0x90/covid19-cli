@@ -1,13 +1,6 @@
 import argparse
-from .functions import \
-            fetch_details, \
-            fetch_country_details, \
-            print_sos_details
-from .logger import log_info
-
-
-API_URI = "https://api.covid19india.org/state_district_wise.json"
-COVID_JSON = {}
+from covid19.functions import fetch_cases
+from covid19.logger import log_error
 
 
 def main():
@@ -40,25 +33,9 @@ def main():
             action="store_true"
         )
     args = parser.parse_args()
-
-    # Fetch details from api
-    COVID_JSON = fetch_details(API_URI)
-
-    # Show country details as default
-    if not args.emergency and not args.district and \
-       not args.state:
-        total_count, state_unknowns = fetch_country_details(COVID_JSON)
-        log_info("Country Status : ", total_count, state_unknowns)
-    else:
-        # SOS emergency is set
-        district_set = False
-        state_set = False
-        country_set = args.country
-
-        if args.emergency:
-            print_sos_details()
-        else:
-            pass
+    if not args:
+        log_error("Error occured")
+    fetch_cases(args)
 
 
 if __name__ == '__main__':

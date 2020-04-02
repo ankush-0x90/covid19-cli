@@ -6,6 +6,7 @@ def log_error(message):
     print("Exiting......")
     print("")
     print("")
+    exit(0)
 
 
 def log_info(message, total_count, unknowns):
