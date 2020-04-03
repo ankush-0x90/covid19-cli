@@ -1,9 +1,10 @@
 import argparse
-from covid19.functions import fetch_cases
-from covid19.logger import log_error
+from covid19 import functions
 
 
 def main():
+    VERSION = "1.0.0"
+
     parser = argparse.ArgumentParser(
         description="A CLI for fetching covid19 info."
     )
@@ -16,26 +17,16 @@ def main():
             action="store_true"
         )
     parser.add_argument(
-            "-d",
-            "--district",
-            help="(string) district name (correct, case-insensetive) to track"
-        )
-    parser.add_argument(
             "-s",
             "--state",
             help="(string) state name (correct, case-insensetive) to track"
         )
-    parser.add_argument(
-            "-c",
-            "--country",
-            default=True,
-            help="(boolean) true/false for showing country details",
-            action="store_true"
-        )
+
     args = parser.parse_args()
-    if not args:
-        log_error("Error occured")
-    fetch_cases(args)
+
+    functions.print_covid19_cli_info(VERSION)
+    functions.fetch_cases(args, VERSION)
+    functions.print_covid19_cli_credits()
 
 
 if __name__ == '__main__':

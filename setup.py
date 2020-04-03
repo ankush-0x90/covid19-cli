@@ -13,7 +13,9 @@ setup(
     python_requires='>=3',
     install_requires=[
         'requests>=2.23',
-        'argparse>=1.4'
+        'argparse>=1.4',
+        'termcolor>=1.1',
+        'prettytable==0.7.2'
     ],
 
     # metadata
