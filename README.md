@@ -1,4 +1,4 @@
-# COVID-19 CLI Toolkit
+# Covi19-Cli
 
 
 ## Installation
