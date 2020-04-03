@@ -1,10 +1,11 @@
 ## covi19-cli
 <br/>
-<center>
+
 ![image](https://github.com/asprazz/covid19-cli/blob/master/screenshots/screenshot1.png)
-</center>
+
 <br/>
 <br/>
+
 - `:rocket:` Get instant coronavirus status of India on terminal
 - Clean user interface
 - Making of README.md in progress Than you :)
@@ -14,6 +15,14 @@
 - `cd covid19-cli`
 - if requires `chmod +x install.sh`
 - then run `install.sh`
+
+### Usage
+- `covid19 -e` or `covid19 --emergency` : for printing emergency numbers
+- `covid19` : for country's status (default)
+- `covid19 -s=maharashtra` or `covid19 -s maharashtra` : for both country's and state's status
+- `covid19 -s mh` : will also work
+- `covid19 -h` or `covid19 --help` : for help
+
 
 ### Error reports
 - First of all thank you.
@@ -27,3 +36,5 @@
 
 ### Special Thanks To
 - https://api.covid19india.org/
+- argparse
+- prettytable
