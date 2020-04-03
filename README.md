@@ -1,7 +1,8 @@
 ## covi19-cli
 <br/>
-
+<center>
 ![image](https://github.com/asprazz/covid19-cli/blob/master/screenshots/screenshot1.png)
+</center>
 <br/>
 <br/>
 - `:rocket:` Get instant coronavirus status of India on terminal
