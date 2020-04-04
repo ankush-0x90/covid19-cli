@@ -16,7 +16,7 @@
 
 ### Installation
 - From pip :
-- `pip3 install covid19-cli==1.0.1`
+- `pip3 install covid19-cli`
 - Manual installation :
 - `git clone https://github.com/asprazz/covid19-cli.git`
 - `cd covid19-cli`
