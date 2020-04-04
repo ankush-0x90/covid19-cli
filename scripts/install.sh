@@ -1,14 +1,14 @@
 # Checks to be perform on windows and mac
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    sudo -H pip3 install -e .
+    python setup.py install
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    sudo -H pip3 install -e .
+    python setup.py install
 elif [[ "$OSTYPE" == "msys" ]]; then
-    pip3 install -e .
+    python setup.py install
 elif [[ "$OSTYPE" == "win32" ]]; then
-    pip3 install -e .
+    python setup.py install
 elif [[ "$OSTYPE" == "freebsd"* ]]; then
-    pip3 install -3 .
+    python setup.py install
 else
     echo "UPDATE"
 fi

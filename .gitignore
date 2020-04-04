@@ -1,5 +1,26 @@
-.install.sh.swp
+*.py[cod]
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+__pycache__
+
+# vscode metadata
 .vscode/*
-covid19.egg-info/*
-__pycache__/*
-*.pyc
+
+# shell metadata
+.install.sh.swp
+
+# pycharm metadata
+.idea

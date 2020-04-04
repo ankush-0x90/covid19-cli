@@ -10,11 +10,19 @@
 - Clean user interface
 - Making of README.md in progress Than you :)
 
+## Dependencies
+- >python3.5
+- pip3
+
 ### Installation
+- From pip :
+- `pip3 install covid19-cli==1.0.1`
+- Manual installation :
 - `git clone https://github.com/asprazz/covid19-cli.git`
 - `cd covid19-cli`
-- if requires `chmod +x install.sh`
-- then run `install.sh`
+- (optional for linux users) if requires `chmod +x install.sh`
+- then run `scripts/./install.sh`
+
 
 ### Usage
 - `covid19 -e` or `covid19 --emergency` : for printing emergency numbers
@@ -22,6 +30,16 @@
 - `covid19 -s=maharashtra` or `covid19 -s maharashtra` : for both country's and state's status
 - `covid19 -s mh` : will also work
 - `covid19 -h` or `covid19 --help` : for help
+
+
+### Developement
+- fork the repo
+- `git clone https://github.com/{your_username}/covid19-cli.git`
+- Activate environment if available
+- run `python covid19/__main__.py`
+- run `python covid19/__main__.py -h` for help
+
+
 
 
 ### Error reports

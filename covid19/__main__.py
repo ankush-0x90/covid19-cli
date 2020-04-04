@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 import argparse
 from covid19 import functions
 
