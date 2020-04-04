@@ -5,7 +5,7 @@ from covid19 import functions
 
 
 def main():
-    VERSION = "1.0.0"
+    VERSION = "1.0.2"
 
     parser = argparse.ArgumentParser(
         description="A CLI for fetching covid19 info."
