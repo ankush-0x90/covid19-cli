@@ -5,7 +5,9 @@
 
 <br/>
 <br/>
-[![PyPI version](https://badge.fury.io/py/covid19-cli.svg)](https://badge.fury.io/py/covid19-cli)
+
+![PyPI version](https://badge.fury.io/py/covid19-cli.svg)(https://badge.fury.io/py/covid19-cli)
+
 - Get instant coronavirus status of India on terminal
 - Clean user interface
 - Making of README.md in progress Than you :)
