@@ -8,5 +8,4 @@ def send_request(API_URI, method="GET"):
         resp_json = response.json()
         return resp_json
     except requests.RequestException:
-        log_error("Request Exception Occured!\nPlease check network\
-            connectivity or try again.")
+        log_error("Request Exception Occured! Please check network connection")
