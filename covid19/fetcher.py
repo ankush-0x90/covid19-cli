@@ -10,9 +10,11 @@ def fetch_country_status():
     COUNTRY_DETAILS = {}
     try:
         COUNTRY_DETAILS = DATA['statewise'][0]
-        COUNTRY_DETAILS['key_values'] = DATA['key_values']
+        if 'key_valus' in DATA:
+            COUNTRY_DETAILS['key_values'] = DATA['key_values']
         return COUNTRY_DETAILS
-    except Exception:
+    except Exception as e:
+        print(e)
         return None
 
 

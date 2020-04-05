@@ -10,17 +10,24 @@ def parse_country_details(COUNTRY_DETAILS):
         rangebi = printer.Rangebi()
 
         # parsing country details
-        last_updated_on = COUNTRY_DETAILS['key_values'][0]['lastupdatedtime']
+
+        last_updated_on = COUNTRY_DETAILS['lastupdatedtime']
 
         total_confirmed_cases = COUNTRY_DETAILS['confirmed']
         total_active_cases = COUNTRY_DETAILS['active']
         total_recovered_cases = COUNTRY_DETAILS['recovered']
         total_deceased_cases = COUNTRY_DETAILS['deaths']
 
-        delta_confirmed_cases = COUNTRY_DETAILS['delta']['confirmed']
-        delta_active_cases = COUNTRY_DETAILS['delta']['active']
-        delta_recovered_cases = COUNTRY_DETAILS['delta']['recovered']
-        delta_deceased_cases = COUNTRY_DETAILS['delta']['deaths']
+        delta_confirmed_cases = COUNTRY_DETAILS['deltaconfirmed']
+        delta_active_cases = 0
+        delta_recovered_cases = COUNTRY_DETAILS['deltarecovered']
+        delta_deceased_cases = COUNTRY_DETAILS['deltadeaths']
+
+        if ('delta' in COUNTRY_DETAILS):
+            delta_confirmed_cases = COUNTRY_DETAILS['delta']['confirmed']
+            delta_active_cases = COUNTRY_DETAILS['delta']['active']
+            delta_recovered_cases = COUNTRY_DETAILS['delta']['recovered']
+            delta_deceased_cases = COUNTRY_DETAILS['delta']['deaths']
 
         print(
             rangebi.get_in_bold(rangebi.get_in_warning("# INDIA Status \t")),
@@ -50,6 +57,7 @@ def parse_country_details(COUNTRY_DETAILS):
         printer.new_lines(1)
 
     except Exception as e:
+        print(e)
         log_error("Excpetion occured while parsing")
 
 
@@ -67,10 +75,16 @@ def parse_state_details(STATE_DETAILS):
         total_recovered_cases = STATE_DETAILS['recovered']
         total_deceased_cases = STATE_DETAILS['deaths']
 
-        delta_confirmed_cases = STATE_DETAILS['delta']['confirmed']
-        delta_active_cases = STATE_DETAILS['delta']['active']
-        delta_recovered_cases = STATE_DETAILS['delta']['recovered']
-        delta_deceased_cases = STATE_DETAILS['delta']['deaths']
+        delta_confirmed_cases = STATE_DETAILS['deltaconfirmed']
+        delta_active_cases = 0
+        delta_recovered_cases = STATE_DETAILS['deltarecovered']
+        delta_deceased_cases = STATE_DETAILS['deltadeaths']
+
+        if ('delta' in STATE_DETAILS):
+            delta_confirmed_cases = STATE_DETAILS['delta']['confirmed']
+            delta_active_cases = STATE_DETAILS['delta']['active']
+            delta_recovered_cases = STATE_DETAILS['delta']['recovered']
+            delta_deceased_cases = STATE_DETAILS['delta']['deaths']
 
         print(
             rangebi.get_in_bold(
