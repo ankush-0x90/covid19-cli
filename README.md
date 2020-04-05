@@ -5,8 +5,8 @@
 
 <br/>
 <br/>
-
-- `:rocket:` Get instant coronavirus status of India on terminal
+[![PyPI version](https://badge.fury.io/py/covid19-cli.svg)](https://badge.fury.io/py/covid19-cli)
+- Get instant coronavirus status of India on terminal
 - Clean user interface
 - Making of README.md in progress Than you :)
 
