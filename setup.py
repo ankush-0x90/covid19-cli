@@ -10,7 +10,7 @@ with open(os.path.join(os.path.dirname(__file__), "README.md")) as f:
 setup(
     name='covid19-cli',
     author="Ankush Patil",
-    version="1.0.2",
+    version="1.0.3",
     url="https://github.com/asprazz/covid19-cli",
     description="A CLI for getting covid19 status at lightning speed.",
     long_description=long_description,

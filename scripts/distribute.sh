@@ -1,7 +1,7 @@
 python setup.py sdist bdist_wheel
 
-if [[ "test" == "test" ]]; then
+if [[ $1 == "test" ]]; then
     twine upload --repository-url https://test.pypi.org/legacy/ dist/*
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    python upload dist/*
+elif [[ $1 == "prod"* ]]; then
+    twine upload dist/*
 fi
