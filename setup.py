@@ -19,7 +19,8 @@ setup(
     install_requires=[
         'requests>=2.23',
         'argparse',
-        'prettytable'
+        'prettytable',
+        'colorama'
     ],
     # we requires python 3+
     python_requires='>=3.5',
