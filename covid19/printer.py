@@ -6,7 +6,7 @@ import colorama
 class Rangebi:
     # colour constants
     # Issue#6 temparary printing in white for windows
-    if platform.syatem() == 'Windows':
+    if platform.system() == 'Windows':
         colorama.init()
 
     HEADER = '\033[95m'
