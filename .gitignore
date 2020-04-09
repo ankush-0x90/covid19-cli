@@ -24,3 +24,9 @@ __pycache__
 
 # pycharm metadata
 .idea
+
+# virtual environments
+.env/
+.venv/
+env/
+venv/
