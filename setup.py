@@ -1,8 +1,6 @@
 import os
 import re
 
-from apsara.__main__ import _get_version
-
 from setuptools import setup, find_packages
 
 with open(os.path.join(os.path.dirname(__file__), "README.md")) as f:
@@ -12,7 +10,7 @@ with open(os.path.join(os.path.dirname(__file__), "README.md")) as f:
 setup(
     name='covid19-cli',
     author="Ankush Patil",
-    version=_get_version(),
+    version="1.0.4",
     url="https://github.com/asprazz/covid19-cli",
     description="A CLI for getting covid19 status at lightning speed.",
     long_description=long_description,
