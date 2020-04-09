@@ -3,6 +3,7 @@ from covid19.logger import log_error
 
 COUNTRY_DETAILS = {}
 STATE_DETAILS = {}
+WORLD_DETAILS = {}
 
 
 def fetch_cases(args, VERSION):
@@ -11,7 +12,7 @@ def fetch_cases(args, VERSION):
         fetcher.fetch_sos_details()
     else:
         # Show world details as default
-        if args.country and args.country.lower() == 'india':
+        if args.country and args.country.lower() == "india":
             COUNTRY_DETAILS = fetcher.fetch_india_status()
             if not COUNTRY_DETAILS:
                 log_error("During fetching India status! Please try again!")
@@ -28,3 +29,6 @@ def fetch_cases(args, VERSION):
                     parser.global_parser_multiple(STATE_DETAILS)
                 else:
                     parser.global_parser(STATE_DETAILS)
+        elif args.country and args.country.lower() == "world":
+            WORLD_DETAILS = fetcher.fetch_world_details()
+            parser.global_parser(WORLD_DETAILS)

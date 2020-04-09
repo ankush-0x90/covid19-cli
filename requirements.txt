@@ -2,3 +2,4 @@ colorama==0.4.3
 prettytable==0.7.2
 requests==2.23.0
 argparse
+halo
