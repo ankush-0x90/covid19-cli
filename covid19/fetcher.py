@@ -1,7 +1,11 @@
-from covid19.helpers import send_request
 import pprint
+import time
+from datetime import datetime
+
+from covid19.helpers import send_request
 
 DATA_API = "https://api.covid19india.org/data.json"
+WORLD_API = "https://corona.lmao.ninja/all"
 DISTRICT_WISE_API = "https://api.covid19india.org/state_district_wise.json"
 
 
@@ -22,6 +26,35 @@ def fetch_india_status(state=False):
                 return details
 
     except Exception as e:
+        return None
+
+
+def fetch_world_details():
+    try:
+        DATA = send_request(WORLD_API)
+        # match data according global parser object
+        WORLD_DETAILS = {}
+        WORLD_DETAILS['state'] = "World"
+        WORLD_DETAILS['lastupdatedtime'] = time.strftime(
+            '%d/%H/%Y %H:%M',
+            time.gmtime(DATA['updated']/1000)
+        )
+        WORLD_DETAILS['confirmed'] = DATA['cases']
+        WORLD_DETAILS['active'] = DATA['active']
+        WORLD_DETAILS['recovered'] = DATA['recovered']
+        WORLD_DETAILS['deaths'] = DATA['deaths']
+
+        WORLD_DETAILS['deltaconfirmed'] = DATA['todayCases']
+        WORLD_DETAILS['detlaactive'] = 0
+        WORLD_DETAILS['deltarecovered'] = 0
+        WORLD_DETAILS['deltadeaths'] = DATA['todayDeaths']
+
+        WORLD_DETAILS['affectedCountries'] = DATA['affectedCountries']
+
+        return WORLD_DETAILS
+
+    except Exception as e:
+        print(e)
         return None
 
 

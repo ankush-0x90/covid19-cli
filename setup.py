@@ -20,7 +20,8 @@ setup(
         'requests>=2.23',
         'argparse',
         'prettytable',
-        'colorama'
+        'colorama',
+        'halo'
     ],
     # we requires python 3+
     python_requires='>=3.5',
