@@ -35,7 +35,7 @@ def print_covid19_cli_info(VERSION):
     print(
         rangebi.get_in_bold(
             rangebi.get_in_success(
-                "\t\tWelcome to Covid19-Cli (Version = {})".format(VERSION)
+                "\t\tWelcome to Covid19-Cli (Version={})".format(VERSION)
             )
         )
     )
