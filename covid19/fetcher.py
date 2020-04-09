@@ -10,13 +10,17 @@ def fetch_india_status(state=False):
         DATA = send_request(DATA_API)
 
         if not state:
+            # for India stateName is Total
             state = "Total"
+        elif state.lower() == "all":
+            # if data for every state requested
+            return DATA['statewise'][1:]
 
-        # for India stateName is Total
         for details in DATA['statewise']:
             if details['state'].lower() == state.lower() or \
                details['statecode'].upper() == state.upper():
                 return details
+
     except Exception as e:
         return None
 
