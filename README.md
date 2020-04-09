@@ -35,10 +35,12 @@
 - `covid19 -h` or `covid19 --help` : for help
 
 
-### Developement
+### Development
 - fork the repo
 - `git clone https://github.com/{your_username}/covid19-cli.git`
 - Activate environment if available
+- `cd covid19-cli`
+- run `pip install .`
 - run `python covid19/__main__.py`
 - run `python covid19/__main__.py -h` for help
 
