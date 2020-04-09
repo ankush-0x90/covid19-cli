@@ -51,6 +51,7 @@ def global_parser(DETAILS):
             rangebi.get_in_danger(" (+" + str(delta_deceased_cases) + ")")
         ])
 
+        printer.new_lines()
         printer.get_tab()
         print(
             rangebi.get_in_bold(
@@ -61,6 +62,18 @@ def global_parser(DETAILS):
         )
 
         print(x)
+
+        printer.new_lines(1)
+
+        if details_for.lower() == "world":
+            print(
+                rangebi.get_in_danger(
+                    "Total Countries Affected: "
+                ),
+                rangebi.get_in_bold(
+                    DETAILS['affectedCountries']
+                )
+            )
         printer.new_lines(1)
 
     except Exception as e:
@@ -82,7 +95,6 @@ def global_parser_multiple(MULTIPLE_DETAILS):
         ]
         x.align = "c"
         x.align[rangebi.get_in_info("State")] = "l"
-        x._set_vrules(ALL)
 
         # parsing country details
         for DETAILS in MULTIPLE_DETAILS:
@@ -143,13 +155,15 @@ def global_parser_multiple(MULTIPLE_DETAILS):
                 str(last_updated_on)
             ])
 
+        printer.new_lines()
         printer.get_tab()
         print(
             rangebi.get_in_bold(
                 rangebi.get_in_warning(
                     "# {} Status \t"
                 ).format('States')
-            )
+            ),
+            "Stay Home Stay Safe"
         )
         print(x)
         printer.new_lines(1)
