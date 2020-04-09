@@ -5,27 +5,20 @@ DATA_API = "https://api.covid19india.org/data.json"
 DISTRICT_WISE_API = "https://api.covid19india.org/state_district_wise.json"
 
 
-def fetch_country_status():
-    DATA = send_request(DATA_API)
-    COUNTRY_DETAILS = {}
+def fetch_india_status(state=False):
     try:
-        COUNTRY_DETAILS = DATA['statewise'][0]
-        if 'key_valus' in DATA:
-            COUNTRY_DETAILS['key_values'] = DATA['key_values']
-        return COUNTRY_DETAILS
+        DATA = send_request(DATA_API)
+
+        if not state:
+            state = "Total"
+
+        # for India stateName is Total
+        for details in DATA['statewise']:
+            if details['state'].lower() == state.lower() or \
+               details['statecode'].upper() == state.upper():
+                return details
     except Exception as e:
-        print(e)
         return None
-
-
-def fetch_state_status(state):
-    DATA = send_request(DATA_API)
-    # searching state with either name or statecode
-    for state_details in DATA['statewise']:
-        if state_details['state'].lower() == state.lower() or \
-           state_details['statecode'].upper() == state.upper():
-            return state_details
-    return None
 
 
 def fetch_sos_details():

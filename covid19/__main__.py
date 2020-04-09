@@ -14,15 +14,26 @@ def main():
 
     # adding arguments
     parser.add_argument(
+            "country",
+            help="(str) which country you want to fetch details of"
+        )
+    parser.add_argument(
+            "-s",
+            "--state",
+            help="(string) state name (correct, case-insensetive) to track"
+        )
+    parser.add_argument(
             "-e",
             "--emergency",
             help="print emergency contact numbers and helpful links",
             action="store_true"
         )
     parser.add_argument(
-            "-s",
-            "--state",
-            help="(string) state name (correct, case-insensetive) to track"
+            "-i",
+            "--interactive",
+            default=False,
+            help="start interactive interface",
+            action="store_true"
         )
 
     args = parser.parse_args()

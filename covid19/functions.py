@@ -13,20 +13,21 @@ def fetch_cases(args, VERSION):
         # SOS emergency is set
         fetcher.fetch_sos_details()
     else:
-        # Show country details as default
-        COUNTRY_DETAILS = fetcher.fetch_country_status()
-        if not COUNTRY_DETAILS:
-            log_error("During fetching country details! Please try again!")
-            return
-
-        parser.parse_country_details(COUNTRY_DETAILS)
-
-        if args.state:
-            STATE_DETAILS = fetcher.fetch_state_status(args.state)
-            if not STATE_DETAILS:
-                log_error("State not found or something else!")
+        # Show world details as default
+        if args.country and args.country.lower() == 'india':
+            COUNTRY_DETAILS = fetcher.fetch_india_status()
+            if not COUNTRY_DETAILS:
+                log_error("During fetching India status! Please try again!")
                 return
-            parser.parse_state_details(STATE_DETAILS)
+
+            parser.parse_country_details(COUNTRY_DETAILS)
+
+            if args.state:
+                STATE_DETAILS = fetcher.fetch_india_status(args.state)
+                if not STATE_DETAILS:
+                    log_error("State not found or something else!")
+                    return
+                parser.parse_state_details(STATE_DETAILS)
 
 
 def print_covid19_cli_info(VERSION):
