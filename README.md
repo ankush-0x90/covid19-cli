@@ -1,63 +1,94 @@
-## covi19-cli
-<br/>
+## Covid19-Cli
 
-![image](https://github.com/asprazz/covid19-cli/blob/master/screenshots/screenshot1.png)
+<P>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A CLI application for getting covid-19 coronavirus :space_invader:	 status of your country, state or district at lightning :zap: speed right on your terminal :computer: built using https://api.covid19india.org.
+</p>
 
-<br/>
-<br/>
+<p>
 
-[![PyPI version](https://badge.fury.io/py/covid19-cli.svg)](https://badge.fury.io/py/covid19-cli)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/covid19-cli)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Made with :heavy_heart_exclamation: using Python3.
 
-- Get instant coronavirus status of India on terminal
-- Clean user interface
-- Making of README.md in progress Than you :)
+[![PyPI version](https://badge.fury.io/py/covid19-cli.svg)](https://badge.fury.io/py/covid19-cli) ![PyPI - Downloads](https://img.shields.io/pypi/dm/covid19-cli)
 
-## Dependencies
-- >python3.5
-- pip3
+</p>
 
-### Installation
-- From pip :
-- `pip3 install covid19-cli`
-- Manual installation :
-- `git clone https://github.com/asprazz/covid19-cli.git`
-- `cd covid19-cli`
-- (optional for linux users) if requires `chmod +x install.sh`
-- then run `scripts/./install.sh`
+![image](https://github.com/asprazz/covid19-cli/blob/master/screenshots/screenshot3.png)
+
+
+### Dependencies
+- `Covid19` runs on Python3.x
+- [`pip3`](https://pip.pypa.io/en/stable/installing/)
+- [`requests`](https://requests.readthedocs.io/en/master/user/install/)
+- [`argparse`](https://pypi.org/project/argparse/)
+- [`prettytable`](https://ptable.readthedocs.io/en/latest/installation.html)
+and our beloved
+- [`colorama`](https://pypi.org/project/colorama/)
+- Thanks to all :pray:
+
+
+### Installation (Not for development)
+- <strong>Note: Please update globally installed package frequently. :innocent:	</strong>
+- Installing from `pypi`
+    - `pip install covid19-cli` (use pip for Python3)
+    - Already installed ?
+        - Update using `pip install -U covid19-cli`
+        - see [How To Update Pip Package](https://stackoverflow.com/questions/4536103/how-can-i-upgrade-specific-packages-using-pip-and-a-requirements-file)
+- Installing Manually :
+    - `git clone https://github.com/asprazz/covid19-cli.git`
+    - `cd covid19-cli`
+        - Option 1:
+            - (if windows) `pip install .`
+            - (if linux/mac) `sudo pip install . -H`
+        - Option 2:
+            - (optional for linux users) if requires `chmod +x install.sh`
+            - then run `scripts/./install.sh`
 
 
 ### Usage
 - `covid19 -e` or `covid19 --emergency` : for printing emergency numbers
+- `covid19 -h` or `covid19 --help` : for printing emergency numbers
 - `covid19` : for country's status (default)
-- `covid19 -s=maharashtra` or `covid19 -s maharashtra` : for both country's and state's status
+- `covid19 -s maharashtra` or `covid19 -s=maharashtra` : for both country's and state's status
 - `covid19 -s mh` : will also work
-- `covid19 -h` or `covid19 --help` : for help
+- See Documentation (https://github.com/asprazz/covid19-cli/blob/master/docs/)
 
 
-### Development
-- fork the repo
-- `git clone https://github.com/{your_username}/covid19-cli.git`
-- Activate environment if available
-- `cd covid19-cli`
-- run `pip install .`
-- run `python covid19/__main__.py`
-- run `python covid19/__main__.py -h` for help
+### Contributing Guidelines
+- Thank you for Showing interest in contributing to this project
+- Please see https://github.com/asprazz/covid19-cli/blob/master/CONTRIBUTORS.md
 
-
+#### Development
+- Please, follow the contributing guidelines
+- Fork the repository and clone it to your local environment
+- Activate environment if any (
+    [`venv`](https://docs.python.org/3/library/venv.html)
+    or [`conda`](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
+    for more details
+  )
+- Running `covid19`
+  - Running locally
+      - `cd covid19-cli`
+      - `python covid19/__main__.py`
+  - Installing globally from your local repository
+      - `cd covid19-cli`
+          - Option 1:
+              - (if windows) `pip install .`
+              - (if linux/mac) `sudo pip install . -H`
+          - Option 2:
+              - (optional for linux users) if requires `chmod +x install.sh`
+              - then run `scripts/./install.sh`
+          - option 3:
+              - `python setup.py install`
+- Fix :wrench: something broken or Build :hammer: something interesting
+- Don't forget to target `develop` branch only
 
 
 ### Error reports
 - First of all thank you.
 - https://github.com/asprazz/covid19-cli/issues
 
-### Contributing Guidelines
-- Suggesting a new feature ? Open an feature issue
-- Sending PR, send it without worries
-- Just `fork` `change` `send`
-- Thank you
 
-### Special Thanks To
-- https://api.covid19india.org/
-- argparse
-- prettytable
+### Special Thanks To Covid19India
+- Built on API by :  https://api.covid19india.org/
+- For more details : https://github.com/covid19india/api
+- Also Visit: https://www.covid19india.org/

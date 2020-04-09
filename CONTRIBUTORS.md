@@ -15,6 +15,8 @@
 
 
 ## Branch Organization
-- `master` branch will have stable deployable code
+- `develop` branch will have frequently changing code
+    -Please send pull requests against this branch
+- `master` branch will always have a stable deployable code
 - `release-x.y.z` tags will have release codes for bug fixes on that version
     - eg. `release-1.0.3`
