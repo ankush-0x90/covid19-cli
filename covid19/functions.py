@@ -35,7 +35,7 @@ def print_covid19_cli_info(VERSION):
     print(
         rangebi.get_in_bold(
             rangebi.get_in_success(
-                "\t\tWelcome to Covid19-Cli (version={})".format(VERSION)
+                "\t\tWelcome to Covid19-Cli (Version = {})".format(VERSION)
             )
         )
     )
@@ -53,13 +53,19 @@ def print_covid19_cli_credits():
     )
     printer.new_lines()
     print(
-        "- Created by",
+        "- Contributors :"
+    )
+    print(
+        "\t\t- ",
         rangebi.get_in_success(
-            "asprazz(https://github.com/asprazz)"
+            "asprazz (https://github.com/asprazz) (owner)"
         )
     )
     printer.new_lines()
     print(
-        "- Contributors :"
+        "\t\t- ",
+        rangebi.get_in_success(
+            "KulkarniSuraj (https://github.com/KulkarniSuraj)"
+        )
     )
-    printer.new_lines(2)
+    printer.new_lines()
