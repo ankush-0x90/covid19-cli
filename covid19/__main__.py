@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 import argparse
-from covid19 import functions
+from covid19 import functions, printer
 
 VERSION = "1.0.4"
 
@@ -38,9 +38,9 @@ def main():
 
     args = parser.parse_args()
 
-    functions.print_covid19_cli_info(VERSION)
+    printer.print_covid19_cli_info(VERSION)
     functions.fetch_cases(args, VERSION)
-    functions.print_covid19_cli_credits()
+    printer.print_covid19_cli_credits()
 
 
 def __get_version():

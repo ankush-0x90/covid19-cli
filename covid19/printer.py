@@ -46,3 +46,45 @@ def get_tab(count=1):
     while i < count:
         print("\t", end="")
         i += 1
+
+
+def print_covid19_cli_info(VERSION):
+    rangebi = Rangebi()
+    new_lines()
+    print(
+        rangebi.get_in_bold(
+            rangebi.get_in_success(
+                "\t\tWelcome to Covid19-Cli (Version={})".format(VERSION)
+            )
+        )
+    )
+    new_lines()
+
+
+def print_covid19_cli_credits():
+    rangebi = Rangebi()
+    print(
+        rangebi.get_in_info("## Credits :")
+    )
+    new_lines()
+    print(
+        rangebi.get_in_warning("- MIT Licensed")
+    )
+    new_lines()
+    print(
+        "- Contributors :"
+    )
+    print(
+        "\t\t- ",
+        rangebi.get_in_success(
+            "asprazz (https://github.com/asprazz) (owner)"
+        )
+    )
+    new_lines()
+    print(
+        "\t\t- ",
+        rangebi.get_in_success(
+            "KulkarniSuraj (https://github.com/KulkarniSuraj)"
+        )
+    )
+    new_lines()
