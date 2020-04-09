@@ -3,7 +3,7 @@
 import argparse
 from covid19 import functions, printer
 
-VERSION = "1.0.4"
+VERSION = "1.0.5"
 
 
 def main():
