@@ -6,7 +6,10 @@
 <br/>
 <br/>
 
-- `:rocket:` Get instant coronavirus status of India on terminal
+[![PyPI version](https://badge.fury.io/py/covid19-cli.svg)](https://badge.fury.io/py/covid19-cli)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/covid19-cli)
+
+- Get instant coronavirus status of India on terminal
 - Clean user interface
 - Making of README.md in progress Than you :)
 
@@ -32,10 +35,12 @@
 - `covid19 -h` or `covid19 --help` : for help
 
 
-### Developement
+### Development
 - fork the repo
 - `git clone https://github.com/{your_username}/covid19-cli.git`
 - Activate environment if available
+- `cd covid19-cli`
+- run `pip install .`
 - run `python covid19/__main__.py`
 - run `python covid19/__main__.py -h` for help
 
