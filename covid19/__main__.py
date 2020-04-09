@@ -3,9 +3,10 @@
 import argparse
 from covid19 import functions
 
+VERSION = "1.0.4"
+
 
 def main():
-    VERSION = "1.0.3"
 
     parser = argparse.ArgumentParser(
         description="A CLI for fetching covid19 info."
@@ -29,6 +30,10 @@ def main():
     functions.print_covid19_cli_info(VERSION)
     functions.fetch_cases(args, VERSION)
     functions.print_covid19_cli_credits()
+
+
+def __get_version():
+    return VERSION
 
 
 if __name__ == '__main__':
