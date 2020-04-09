@@ -52,6 +52,34 @@ and our beloved
 - `covid19 -s mh` : will also work
 - See Documentation (https://github.com/asprazz/covid19-cli/blob/master/docs/)
 
+### Contributing Guidelines
+- Thank you for Showing interest in contributing to this project
+- Please see https://github.com/asprazz/covid19-cli/blob/master/CONTRIBUTORS.md
+
+#### Development
+- Please, follow the contributing guidelines
+- Fork the repository and clone it to your local environment
+- Activate environment if any (
+    [`venv`](https://docs.python.org/3/library/venv.html)
+    or [`conda`](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
+    for more details
+  )
+- Running `covid19`
+  - Running locally
+      - `cd covid19-cli`
+      - `python covid19/__main__.py`
+  - Installing globally from your local repository
+      - `cd covid19-cli`
+          - Option 1:
+              - (if windows) `pip install .`
+              - (if linux/mac) `sudo pip install . -H`
+          - Option 2:
+              - (optional for linux users) if requires `chmod +x install.sh`
+              - then run `scripts/./install.sh`
+          - option 3:
+              - `python setup.py install`
+- Fix :wrench: something broken or Build :hammer: something interesting
+- Don't forget to target `develop` branch only
 
 ### Contributing Guidelines
 - Thank you for Showing interest in contributing to this project
