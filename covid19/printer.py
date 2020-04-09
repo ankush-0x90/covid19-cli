@@ -39,3 +39,10 @@ def new_lines(count=1):
     while i < count:
         print("")
         i += 1
+
+
+def get_tab(count=1):
+    i = 0
+    while i < count:
+        print("\t", end="")
+        i += 1

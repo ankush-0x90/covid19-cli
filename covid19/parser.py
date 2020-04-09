@@ -6,7 +6,7 @@ from prettytable import PrettyTable
 
 def parse_country_details(COUNTRY_DETAILS):
     try:
-        x = PrettyTable()
+        x = PrettyTable(padding_width=3)
         rangebi = printer.Rangebi()
 
         # parsing country details
@@ -29,12 +29,6 @@ def parse_country_details(COUNTRY_DETAILS):
             delta_recovered_cases = COUNTRY_DETAILS['delta']['recovered']
             delta_deceased_cases = COUNTRY_DETAILS['delta']['deaths']
 
-        print(
-            rangebi.get_in_bold(rangebi.get_in_warning("# INDIA Status \t")),
-            "last update on :",
-            rangebi.get_in_info(last_updated_on)
-        )
-
         x.field_names = [
             rangebi.get_in_info(" Confirmed "),
             rangebi.get_in_warning(" Active "),
@@ -53,6 +47,13 @@ def parse_country_details(COUNTRY_DETAILS):
             rangebi.get_in_danger(" (+" + str(delta_deceased_cases) + ")")
         ])
 
+        printer.get_tab()
+        print(
+            rangebi.get_in_bold(rangebi.get_in_warning("# INDIA Status \t")),
+            "last update on :",
+            rangebi.get_in_info(last_updated_on)
+        )
+
         print(x)
         printer.new_lines(1)
 
@@ -63,7 +64,7 @@ def parse_country_details(COUNTRY_DETAILS):
 
 def parse_state_details(STATE_DETAILS):
     try:
-        x = PrettyTable()
+        x = PrettyTable(padding_width=3)
         rangebi = printer.Rangebi()
 
         # parsing state details
@@ -86,16 +87,6 @@ def parse_state_details(STATE_DETAILS):
             delta_recovered_cases = STATE_DETAILS['delta']['recovered']
             delta_deceased_cases = STATE_DETAILS['delta']['deaths']
 
-        print(
-            rangebi.get_in_bold(
-                rangebi.get_in_warning(
-                    "# {} Status ".format(state)
-                )
-            ),
-            "last update on :",
-            rangebi.get_in_info(last_updated_on)
-        )
-
         x.field_names = [
             rangebi.get_in_info(" Confirmed "),
             rangebi.get_in_warning(" Active "),
@@ -113,6 +104,17 @@ def parse_state_details(STATE_DETAILS):
             str(total_deceased_cases) +
             rangebi.get_in_danger(" (+" + str(delta_deceased_cases) + ")")
         ])
+
+        printer.get_tab()
+        print(
+            rangebi.get_in_bold(
+                rangebi.get_in_warning(
+                    "# {} Status ".format(state)
+                )
+            ),
+            "last update on :",
+            rangebi.get_in_info(last_updated_on)
+        )
 
         print(x)
         printer.new_lines(1)
