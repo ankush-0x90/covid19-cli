@@ -19,14 +19,14 @@ def fetch_cases(args, VERSION):
             log_error("During fetching country details! Please try again!")
             return
 
-        parser.parse_country_details(COUNTRY_DETAILS)
+        parser.global_parser(COUNTRY_DETAILS)
 
         if args.state:
             STATE_DETAILS = fetcher.fetch_state_status(args.state)
             if not STATE_DETAILS:
                 log_error("State not found or something else!")
                 return
-            parser.parse_state_details(STATE_DETAILS)
+            parser.global_parser(STATE_DETAILS)
 
 
 def print_covid19_cli_info(VERSION):
