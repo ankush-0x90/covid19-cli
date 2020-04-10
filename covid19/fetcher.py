@@ -4,9 +4,13 @@ from datetime import datetime
 
 from covid19.helpers import send_request
 
+# api.covid19india.org
 DATA_API = "https://api.covid19india.org/data.json"
-WORLD_API = "https://corona.lmao.ninja/all"
 DISTRICT_WISE_API = "https://api.covid19india.org/state_district_wise.json"
+
+# NovelCovid/API for all world
+WORLD_API = "https://corona.lmao.ninja/all"
+COUNTRIES_API = "https://corona.lmao.ninja/countries"
 
 
 def fetch_india_status(state=False):
@@ -54,7 +58,53 @@ def fetch_world_details():
         return WORLD_DETAILS
 
     except Exception as e:
-        print(e)
+        return None
+
+
+def fetch_country_details(country):
+    try:
+        COUNTRIES_DATA = send_request(COUNTRIES_API)
+
+        DATA = {}
+        for COUNTRY_DATA in COUNTRIES_DATA:
+            if COUNTRY_DATA['country'].lower() == country.lower():
+                DATA = COUNTRY_DATA
+                break
+
+            if 'countryInfo' in COUNTRY_DATA:
+                if 'iso2' in COUNTRY_DATA['countryInfo'] and \
+                   COUNTRY_DATA['countryInfo']['iso2'] is not None:
+                    if COUNTRY_DATA['countryInfo']['iso2'].lower() == country.lower():
+                        DATA = COUNTRY_DATA
+                        break
+
+                if 'iso3' in COUNTRY_DATA['countryInfo'] and \
+                   COUNTRY_DATA['countryInfo']['iso3'] is not None:
+                    if COUNTRY_DATA['countryInfo']['iso3'].lower() == country.lower():
+                        DATA = COUNTRY_DATA
+                        break
+
+        COUNTRY_DETAILS = {}
+        COUNTRY_DETAILS['state'] = DATA['country']
+        COUNTRY_DETAILS['lastupdatedtime'] = time.strftime(
+            '%d/%H/%Y %H:%M',
+            time.gmtime(DATA['updated']/1000)
+        )
+        COUNTRY_DETAILS['confirmed'] = DATA['cases']
+        COUNTRY_DETAILS['active'] = DATA['active']
+        COUNTRY_DETAILS['recovered'] = DATA['recovered']
+        COUNTRY_DETAILS['deaths'] = DATA['deaths']
+
+        COUNTRY_DETAILS['deltaconfirmed'] = DATA['todayCases']
+        COUNTRY_DETAILS['detlaactive'] = 0
+        COUNTRY_DETAILS['deltarecovered'] = 0
+        COUNTRY_DETAILS['deltadeaths'] = DATA['todayDeaths']
+
+        COUNTRY_DETAILS['critical'] = DATA['critical']
+
+        return COUNTRY_DETAILS
+
+    except Exception as e:
         return None
 
 
