@@ -47,9 +47,11 @@ and our beloved
 ### Usage
 - `covid19 -e` or `covid19 --emergency` : for printing emergency numbers
 - `covid19 -h` or `covid19 --help` : for printing emergency numbers
-- `covid19` : for country's status (default)
+- `covid19 India` : for India's status
+- `covid19 World` : for World status
 - `covid19 -s maharashtra` or `covid19 -s=maharashtra` : for both country's and state's status
-- `covid19 -s mh` : will also work
+- `covid19 -s mh` : will work the same way
+- `covid19 -s all` or `covid19 -s=ALL` : for all states of India
 - See Documentation (https://github.com/asprazz/covid19-cli/blob/master/docs/)
 
 ### Contributing Guidelines
@@ -91,7 +93,7 @@ and our beloved
 - Activate environment if any (
     [`venv`](https://docs.python.org/3/library/venv.html)
     or [`conda`](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
-    for more details 
+    for more details
   )
 - Running `covid19`
   - Running locally
