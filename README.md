@@ -47,11 +47,16 @@ and our beloved
 ### Usage
 - `covid19 -e` or `covid19 --emergency` : for printing emergency numbers
 - `covid19 -h` or `covid19 --help` : for printing emergency numbers
-- `covid19 India` : for India's status
-- `covid19 World` : for World status
-- `covid19 -s maharashtra` or `covid19 -s=maharashtra` : for both country's and state's status
-- `covid19 -s mh` : will work the same way
-- `covid19 -s all` or `covid19 -s=ALL` : for all states of India
+- `covid19 {COUNTRY}` :
+    - `covid19 World` : for whole World's status world is special keyword
+    - `covid19 India` or `covid19 Ind` or `covid19 In` : for India's status
+    - `covid19 USA` or `covid19 Us` : for Fetching Usa's status
+    - `covid19 UK` or `covid19 GBR` : for Fetching UK's status
+    - For fetching states in India (only for India)
+        - `covid19 India -s maharashtra` or `covid19 Ind -s=maharashtra` : for both country's and state's status
+        - `covid19 India -s mh` : will work the same way
+        - `covid19 India -s all` or `covid19 In -s=ALL` : for all states of India
+- See Documentation (https://github.com/asprazz/covid19-cli/blob/master/docs/CODES.md)
 - See Documentation (https://github.com/asprazz/covid19-cli/blob/master/docs/)
 
 ### Contributing Guidelines
@@ -119,3 +124,8 @@ and our beloved
 - Built on API by :  https://api.covid19india.org/
 - For more details : https://github.com/covid19india/api
 - Also Visit: https://www.covid19india.org/
+
+
+### Contributors
+- Ankush Patil (https://github.com/asprazz)
+- Suraj Kulkarni (https://github.com/KulkarniSuraj)

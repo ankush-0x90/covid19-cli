@@ -13,5 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added capability for parsing all states at a single time
 - Added world status fetcher
 - Added loader while waiting for request
+- Added capability to fetch single country
 ### Changed
 - Changed menu
+- Changed Readme.md added proper guidelines on usage
