@@ -35,17 +35,11 @@ class Rangebi:
 
 
 def new_lines(count=1):
-    i = 0
-    while i < count:
-        print("")
-        i += 1
+    print(end="\n"*count)
 
 
 def get_tab(count=1):
-    i = 0
-    while i < count:
-        print("\t", end="")
-        i += 1
+    print("\t"*count, end="")
 
 
 def print_covid19_cli_info(VERSION):
