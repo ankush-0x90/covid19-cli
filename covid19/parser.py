@@ -91,7 +91,6 @@ def global_parser(DETAILS):
         printer.new_lines(1)
 
     except Exception as e:
-        print(e)
         logger.log_error("Excpetion occured while parsing")
 
 
@@ -133,34 +132,40 @@ def global_parser_multiple(MULTIPLE_DETAILS):
                 for i in state_name_split[1:]:
                     state_name += " " + i[0] + "."
 
-            total_confirmed_cases = helpers.formate_num(DETAILS['confirmed'])
-            total_active_cases = helpers.formate_num(DETAILS['active'])
-            total_recovered_cases = helpers.formate_num(DETAILS['recovered'])
-            total_deceased_cases = helpers.formate_num(DETAILS['deaths'])
+            total_confirmed_cases = helpers.formate_num(
+                                    int(DETAILS['confirmed'])
+                                )
+            total_active_cases = helpers.formate_num(
+                                int(DETAILS['active'])
+                            )
+            total_recovered_cases = helpers.formate_num(
+                                    int(DETAILS['recovered'])
+                                )
+            total_deceased_cases = helpers.formate_num(int(DETAILS['deaths']))
 
             delta_confirmed_cases = helpers.formate_num(
-                                    DETAILS['deltaconfirmed']
+                                    int(DETAILS['deltaconfirmed'])
                                 )
             delta_active_cases = 0
             delta_recovered_cases = helpers.formate_num(
-                                    DETAILS['deltarecovered']
+                                    int(DETAILS['deltarecovered'])
                                 )
             delta_deceased_cases = helpers.formate_num(
-                                    DETAILS['deltadeaths']
+                                    int(DETAILS['deltadeaths'])
                                 )
 
             if ('delta' in DETAILS):
                 delta_confirmed_cases = helpers.formate_num(
-                                        DETAILS['delta']['confirmed']
+                                        int(DETAILS['delta']['confirmed'])
                                     )
                 delta_active_cases = helpers.formate_num(
-                                        DETAILS['delta']['active']
+                                        int(DETAILS['delta']['active'])
                                     )
                 delta_recovered_cases = helpers.formate_num(
-                                        DETAILS['delta']['recovered']
+                                        int(DETAILS['delta']['recovered'])
                                     )
                 delta_deceased_cases = helpers.formate_num(
-                                        DETAILS['delta']['deaths']
+                                        int(DETAILS['delta']['deaths'])
                                     )
 
             x.add_row([
