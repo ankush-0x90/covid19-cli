@@ -1,8 +1,8 @@
 from datetime import datetime
-from covid19 import printer
-from covid19.logger import log_error
 
 from prettytable import PrettyTable
+
+from covid19 import printer, logger, helpers
 
 
 def global_parser(DETAILS):
@@ -17,21 +17,35 @@ def global_parser(DETAILS):
         if details_for.lower() == 'total':
             details_for = 'India'
 
-        total_confirmed_cases = DETAILS['confirmed']
-        total_active_cases = DETAILS['active']
-        total_recovered_cases = DETAILS['recovered']
-        total_deceased_cases = DETAILS['deaths']
+        total_confirmed_cases = helpers.formate_num(int(DETAILS['confirmed']))
+        total_active_cases = helpers.formate_num(int(DETAILS['active']))
+        total_recovered_cases = helpers.formate_num(int(DETAILS['recovered']))
+        total_deceased_cases = helpers.formate_num(int(DETAILS['deaths']))
 
-        delta_confirmed_cases = DETAILS['deltaconfirmed']
+        delta_confirmed_cases = helpers.formate_num(
+                                int(DETAILS['deltaconfirmed'])
+                            )
         delta_active_cases = 0
-        delta_recovered_cases = DETAILS['deltarecovered']
-        delta_deceased_cases = DETAILS['deltadeaths']
+        delta_recovered_cases = helpers.formate_num(
+                                int(DETAILS['deltarecovered'])
+                            )
+        delta_deceased_cases = helpers.formate_num(
+                                int(DETAILS['deltadeaths'])
+                            )
 
         if ('delta' in DETAILS):
-            delta_confirmed_cases = DETAILS['delta']['confirmed']
-            delta_active_cases = DETAILS['delta']['active']
-            delta_recovered_cases = DETAILS['delta']['recovered']
-            delta_deceased_cases = DETAILS['delta']['deaths']
+            delta_confirmed_cases = helpers.formate_num(
+                                    int(DETAILS['delta']['confirmed'])
+                                )
+            delta_active_cases = helpers.formate_num(
+                                    int(DETAILS['delta']['active'])
+                                )
+            delta_recovered_cases = helpers.formate_num(
+                                    int(DETAILS['delta']['recovered'])
+                                )
+            delta_deceased_cases = helpers.formate_num(
+                                    int(DETAILS['delta']['deaths'])
+                                )
 
         x.field_names = [
             rangebi.get_in_info(" Confirmed "),
@@ -77,7 +91,7 @@ def global_parser(DETAILS):
         printer.new_lines(1)
 
     except Exception as e:
-        log_error("Excpetion occured while parsing")
+        logger.log_error("Excpetion occured while parsing")
 
 
 def global_parser_multiple(MULTIPLE_DETAILS):
@@ -95,7 +109,7 @@ def global_parser_multiple(MULTIPLE_DETAILS):
         ]
         x.align = "c"
         x.align[rangebi.get_in_info("State")] = "l"
-
+        state_name = ""
         # parsing country details
         for DETAILS in MULTIPLE_DETAILS:
 
@@ -118,21 +132,41 @@ def global_parser_multiple(MULTIPLE_DETAILS):
                 for i in state_name_split[1:]:
                     state_name += " " + i[0] + "."
 
-            total_confirmed_cases = DETAILS['confirmed']
-            total_active_cases = DETAILS['active']
-            total_recovered_cases = DETAILS['recovered']
-            total_deceased_cases = DETAILS['deaths']
+            total_confirmed_cases = helpers.formate_num(
+                                    int(DETAILS['confirmed'])
+                                )
+            total_active_cases = helpers.formate_num(
+                                int(DETAILS['active'])
+                            )
+            total_recovered_cases = helpers.formate_num(
+                                    int(DETAILS['recovered'])
+                                )
+            total_deceased_cases = helpers.formate_num(int(DETAILS['deaths']))
 
-            delta_confirmed_cases = DETAILS['deltaconfirmed']
+            delta_confirmed_cases = helpers.formate_num(
+                                    int(DETAILS['deltaconfirmed'])
+                                )
             delta_active_cases = 0
-            delta_recovered_cases = DETAILS['deltarecovered']
-            delta_deceased_cases = DETAILS['deltadeaths']
+            delta_recovered_cases = helpers.formate_num(
+                                    int(DETAILS['deltarecovered'])
+                                )
+            delta_deceased_cases = helpers.formate_num(
+                                    int(DETAILS['deltadeaths'])
+                                )
 
             if ('delta' in DETAILS):
-                delta_confirmed_cases = DETAILS['delta']['confirmed']
-                delta_active_cases = DETAILS['delta']['active']
-                delta_recovered_cases = DETAILS['delta']['recovered']
-                delta_deceased_cases = DETAILS['delta']['deaths']
+                delta_confirmed_cases = helpers.formate_num(
+                                        int(DETAILS['delta']['confirmed'])
+                                    )
+                delta_active_cases = helpers.formate_num(
+                                        int(DETAILS['delta']['active'])
+                                    )
+                delta_recovered_cases = helpers.formate_num(
+                                        int(DETAILS['delta']['recovered'])
+                                    )
+                delta_deceased_cases = helpers.formate_num(
+                                        int(DETAILS['delta']['deaths'])
+                                    )
 
             x.add_row([
                 str(state_name),
@@ -169,5 +203,4 @@ def global_parser_multiple(MULTIPLE_DETAILS):
         printer.new_lines(1)
 
     except Exception as e:
-        print(e)
-        log_error("Excpetion occured while parsing")
+        logger.log_error("Excpetion occured while parsing")

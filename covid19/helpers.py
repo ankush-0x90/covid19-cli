@@ -1,7 +1,11 @@
 import requests
-from covid19 import logger, printer
+import locale
 
 from halo import Halo
+
+from covid19 import logger, printer
+
+locale.setlocale(locale.LC_MONETARY, 'en_IN')
 
 
 def send_request(API_URI, method="GET"):
@@ -17,3 +21,8 @@ def send_request(API_URI, method="GET"):
             "Request Exception Occured! Please check network connection"
         )
     spinner.stop()
+
+
+def formate_num(number):
+    formated_number = locale.currency(number, grouping=True)
+    return formated_number[2:-3]
