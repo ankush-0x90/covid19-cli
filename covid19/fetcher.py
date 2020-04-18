@@ -9,8 +9,8 @@ DATA_API = "https://api.covid19india.org/data.json"
 DISTRICT_WISE_API = "https://api.covid19india.org/state_district_wise.json"
 
 # NovelCovid/API for all world
-WORLD_API = "https://corona.lmao.ninja/all"
-COUNTRIES_API = "https://corona.lmao.ninja/countries"
+WORLD_API = "https://corona.lmao.ninja/v2/all"
+COUNTRIES_API = "https://corona.lmao.ninja/v2/countries"
 
 
 def fetch_india_status(state=False):
