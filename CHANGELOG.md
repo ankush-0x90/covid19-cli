@@ -5,12 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.0.8]
 
 ### Added
-- Added comma in numbers to improve readability Issue #14
+- [x] Fix Bug in printing all states info
+- [x] Fixes #17 and #19
+
 ### Changed
-- Changed import structure
+
+## [1.0.7] -  2020-04-12
+
+### Added
+- [x] Added comma in numbers to improve readability Issue #14
+### Changed
+- [x] Changed import structure
 
 ## [1.0.5][1.0.6] - 2020-04-09
 
