@@ -13,7 +13,7 @@ def fetch_cases(args, VERSION):
     else:
         # Show world details as default
         if args.country:
-            if args.country.lower() == "india":
+            if args.country.lower() in ['india', 'in', 'ind']:
                 COUNTRY_DETAILS = fetcher.fetch_india_status()
                 if not COUNTRY_DETAILS:
                     log_error("During fetching India status! Please try again!")
