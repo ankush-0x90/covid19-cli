@@ -34,18 +34,10 @@ class Rangebi:
         return Rangebi.OKBLUE + str(message) + Rangebi.ENDC
 
 
-def new_lines(count=1):
-    i = 0
-    while i < count:
-        print("")
-        i += 1
+new_lines = lambda count=1: print(end="\n"*count)
 
 
-def get_tab(count=1):
-    i = 0
-    while i < count:
-        print("\t", end="")
-        i += 1
+get_tab = lambda count=1: print("\t"*count, end="")
 
 
 def print_covid19_cli_info(VERSION):
