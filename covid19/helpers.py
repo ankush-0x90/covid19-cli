@@ -5,7 +5,6 @@ from halo import Halo
 from covid19 import logger, printer
 
 
-
 def send_request(API_URI, method="GET"):
     spinner = Halo(text='\t Hold on a second ....', spinner='dots')
     spinner.start()
@@ -23,4 +22,3 @@ def send_request(API_URI, method="GET"):
 
 def formate_num(number):
     return '{:,}'.format(number)
-    
