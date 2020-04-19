@@ -63,7 +63,7 @@ and our beloved
         - `covid19 India -s maharashtra` or `covid19 Ind -s=maharashtra` : for both country's and state's status
         - `covid19 India -s mh` : will work the same way
         - `covid19 India -s all` or `covid19 In -s=ALL` : for all states of India
-- See CODES.md (ISSUE #13)
+- See CODES.md (https://github.com/asprazz/covid19-cli/blob/master/CODES.md)
 - See Documentation (https://github.com/asprazz/covid19-cli/blob/master/docs/)
 
 ### Contributing Guidelines
