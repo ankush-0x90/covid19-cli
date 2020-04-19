@@ -19,7 +19,7 @@
 
 </p>
 
-![image](https://github.com/asprazz/covid19-cli/blob/master/screenshots/screenshot3.png)
+![image](https://github.com/asprazz/covid19-cli/blob/master/screenshots/screenshot4.png)
 
 
 ### Dependencies
