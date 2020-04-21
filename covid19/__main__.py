@@ -18,6 +18,13 @@ def main():
             help="(str) which country you want to fetch details of"
         )
     parser.add_argument(
+            "-a",
+            "--all",
+            default=False,
+            help="Display all the info available i. if world -> all countries",
+            action="store_true"
+        )
+    parser.add_argument(
             "-s",
             "--state",
             help="(string) state name (correct, case-insensetive) to track"

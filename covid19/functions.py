@@ -20,6 +20,10 @@ def fetch_cases(args, VERSION):
                     return
                 parser.global_parser(COUNTRY_DETAILS)
 
+                # If all is enabled on India
+                if args.all:
+                    args.state = "all"
+
                 if args.state:
                     STATE_DETAILS = fetcher.fetch_india_status(args.state)
                     if not STATE_DETAILS:
