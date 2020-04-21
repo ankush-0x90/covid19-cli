@@ -94,13 +94,13 @@ def global_parser(DETAILS):
         logger.log_error("Excpetion occured while parsing")
 
 
-def global_parser_multiple(MULTIPLE_DETAILS):
+def global_parser_multiple(MULTIPLE_DETAILS, title="State"):
     try:
         x = PrettyTable()
         rangebi = printer.Rangebi()
 
         x.field_names = [
-            rangebi.get_in_info("State"),
+            rangebi.get_in_info(title),
             rangebi.get_in_info(" Confirmed "),
             rangebi.get_in_warning(" Active "),
             rangebi.get_in_success(" Recovered "),
@@ -108,20 +108,22 @@ def global_parser_multiple(MULTIPLE_DETAILS):
             rangebi.get_in_danger(" Last Update On "),
         ]
         x.align = "c"
-        x.align[rangebi.get_in_info("State")] = "l"
+        x.align[rangebi.get_in_info(title)] = "l"
         state_name = ""
+        # not used last_udpated_on_obj ?
+        last_updated_on = ""
         # parsing country details
         for DETAILS in MULTIPLE_DETAILS:
 
             # parsing country details
-
-            last_updated_on_obj = datetime.strptime(
-                DETAILS['lastupdatedtime'],
-                "%d/%m/%Y %H:%M:%S"
-            )
-            last_updated_on = last_updated_on_obj.strftime(
-                "%H:%M, on %b %d"
-            )
+            if title == "State":
+                last_updated_on_obj = datetime.strptime(
+                    DETAILS['lastupdatedtime'],
+                    "%d/%m/%Y %H:%M:%S"
+                )
+                last_updated_on = last_updated_on_obj.strftime(
+                    "%H:%M, on %b %d"
+                )
             state_name = DETAILS['state']
             if state_name.lower() == 'total':
                 state_name = 'India'
@@ -195,7 +197,7 @@ def global_parser_multiple(MULTIPLE_DETAILS):
             rangebi.get_in_bold(
                 rangebi.get_in_warning(
                     "# {} Status \t"
-                ).format('States')
+                ).format(title)
             ),
             "Stay Home Stay Safe"
         )
@@ -203,4 +205,5 @@ def global_parser_multiple(MULTIPLE_DETAILS):
         printer.new_lines(1)
 
     except Exception as e:
+        print(e)
         logger.log_error("Excpetion occured while parsing")

@@ -59,6 +59,8 @@ and our beloved
     - `covid19 India` or `covid19 Ind` or `covid19 In` : for India's status
     - `covid19 USA` or `covid19 Us` : for Fetching Usa's status
     - `covid19 UK` or `covid19 GBR` : for Fetching UK's status
+    - `covid19 World -a` or `covid19 World --all` : for Fetching all countries at once
+    - `covid19 India -a` or `covid19 India --all` : for Fetching all states at once (alternative to `covid India -s mh`)
     - For fetching states in India (only for India)
         - `covid19 India -s maharashtra` or `covid19 Ind -s=maharashtra` : for both country's and state's status
         - `covid19 India -s mh` : will work the same way

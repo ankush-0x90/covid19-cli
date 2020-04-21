@@ -64,45 +64,67 @@ def fetch_world_details():
 def fetch_country_details(country):
     try:
         COUNTRIES_DATA = send_request(COUNTRIES_API)
-
         DATA = {}
-        for COUNTRY_DATA in COUNTRIES_DATA:
-            if COUNTRY_DATA['country'].lower() == country.lower():
-                DATA = COUNTRY_DATA
-                break
 
-            if 'countryInfo' in COUNTRY_DATA:
-                if 'iso2' in COUNTRY_DATA['countryInfo'] and \
-                   COUNTRY_DATA['countryInfo']['iso2'] is not None:
-                    if COUNTRY_DATA['countryInfo']['iso2'].lower() == country.lower():
-                        DATA = COUNTRY_DATA
-                        break
+        if country != "all":
+            for COUNTRY_DATA in COUNTRIES_DATA:
+                if COUNTRY_DATA['country'].lower() == country.lower():
+                    DATA = COUNTRY_DATA
+                    break
 
-                if 'iso3' in COUNTRY_DATA['countryInfo'] and \
-                   COUNTRY_DATA['countryInfo']['iso3'] is not None:
-                    if COUNTRY_DATA['countryInfo']['iso3'].lower() == country.lower():
-                        DATA = COUNTRY_DATA
-                        break
+                if 'countryInfo' in COUNTRY_DATA:
+                    if 'iso2' in COUNTRY_DATA['countryInfo'] and \
+                       COUNTRY_DATA['countryInfo']['iso2'] is not None:
+                        if COUNTRY_DATA['countryInfo']['iso2'].lower() == country.lower():
+                            DATA = COUNTRY_DATA
+                            break
 
-        COUNTRY_DETAILS = {}
-        COUNTRY_DETAILS['state'] = DATA['country']
-        COUNTRY_DETAILS['lastupdatedtime'] = time.strftime(
-            '%d/%H/%Y %H:%M',
-            time.gmtime(DATA['updated']/1000)
-        )
-        COUNTRY_DETAILS['confirmed'] = DATA['cases']
-        COUNTRY_DETAILS['active'] = DATA['active']
-        COUNTRY_DETAILS['recovered'] = DATA['recovered']
-        COUNTRY_DETAILS['deaths'] = DATA['deaths']
+                    if 'iso3' in COUNTRY_DATA['countryInfo'] and \
+                       COUNTRY_DATA['countryInfo']['iso3'] is not None:
+                        if COUNTRY_DATA['countryInfo']['iso3'].lower() == country.lower():
+                            DATA = COUNTRY_DATA
+                            break
+            COUNTRY_DETAILS = {}
+            COUNTRY_DETAILS['state'] = DATA['country']
+            COUNTRY_DETAILS['lastupdatedtime'] = time.strftime(
+                '%d/%H/%Y %H:%M',
+                time.gmtime(DATA['updated']/1000)
+            )
+            COUNTRY_DETAILS['confirmed'] = DATA['cases']
+            COUNTRY_DETAILS['active'] = DATA['active']
+            COUNTRY_DETAILS['recovered'] = DATA['recovered']
+            COUNTRY_DETAILS['deaths'] = DATA['deaths']
 
-        COUNTRY_DETAILS['deltaconfirmed'] = DATA['todayCases']
-        COUNTRY_DETAILS['detlaactive'] = 0
-        COUNTRY_DETAILS['deltarecovered'] = 0
-        COUNTRY_DETAILS['deltadeaths'] = DATA['todayDeaths']
+            COUNTRY_DETAILS['deltaconfirmed'] = DATA['todayCases']
+            COUNTRY_DETAILS['detlaactive'] = 0
+            COUNTRY_DETAILS['deltarecovered'] = 0
+            COUNTRY_DETAILS['deltadeaths'] = DATA['todayDeaths']
 
-        COUNTRY_DETAILS['critical'] = DATA['critical']
+            COUNTRY_DETAILS['critical'] = DATA['critical']
 
-        return COUNTRY_DETAILS
+            return COUNTRY_DETAILS
+        else:
+            COUNTRIES_DETAILS = []
+            for DATA in COUNTRIES_DATA:
+                COUNTRY_DETAILS = {}
+                COUNTRY_DETAILS['state'] = DATA['country']
+                COUNTRY_DETAILS['lastupdatedtime'] = time.strftime(
+                    '%d/%H/%Y %H:%M',
+                    time.gmtime(DATA['updated']/1000)
+                )
+                COUNTRY_DETAILS['confirmed'] = DATA['cases']
+                COUNTRY_DETAILS['active'] = DATA['active']
+                COUNTRY_DETAILS['recovered'] = DATA['recovered']
+                COUNTRY_DETAILS['deaths'] = DATA['deaths']
+
+                COUNTRY_DETAILS['deltaconfirmed'] = DATA['todayCases']
+                COUNTRY_DETAILS['detlaactive'] = 0
+                COUNTRY_DETAILS['deltarecovered'] = 0
+                COUNTRY_DETAILS['deltadeaths'] = DATA['todayDeaths']
+
+                COUNTRY_DETAILS['critical'] = DATA['critical']
+                COUNTRIES_DETAILS.append(COUNTRY_DETAILS)
+            return COUNTRIES_DETAILS
 
     except Exception as e:
         return None

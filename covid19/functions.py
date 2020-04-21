@@ -39,9 +39,14 @@ def fetch_cases(args, VERSION):
                 if not WORLD_DETAILS:
                     log_error("Error Occured while fetching world details.")
                 parser.global_parser(WORLD_DETAILS)
+                if args.all:
+                    COUNTRIES_DETAILS = fetcher.fetch_country_details("all")
+                    if not COUNTRIES_DETAILS:
+                        log_error("Error occured while fetching details")
+                    parser.global_parser_multiple(COUNTRIES_DETAILS, "World")
             else:
                 COUNTRY_DETAILS = fetcher.fetch_country_details(args.country)
                 if not COUNTRY_DETAILS:
-                    log_error("Error Occured whie fetching country details")
+                    log_error("Error Occured while fetching country details")
                 else:
                     parser.global_parser(COUNTRY_DETAILS)
