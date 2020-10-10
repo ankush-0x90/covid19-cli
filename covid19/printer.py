@@ -35,11 +35,13 @@ class Rangebi:
 
 
 def new_lines(count=1):
-    print(end="\n"*count)
+    for i in range(count):
+        print("\n")
 
 
 def get_tab(count=1):
-    print("\t"*count, end="")
+    for i in range(count):
+        print("\t")
 
 
 def print_covid19_cli_info(VERSION):
@@ -82,7 +84,7 @@ def print_covid19_cli_credits():
         )
     )
     new_lines()
-	print(
+    print(
         "\t\t- ",
         rangebi.get_in_success(
             "NARAYAN(https://github.com/Naaru-01)"
