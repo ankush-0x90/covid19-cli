@@ -82,7 +82,7 @@ def print_covid19_cli_credits():
         )
     )
     new_lines()
-	    print(
+	print(
         "\t\t- ",
         rangebi.get_in_success(
             "NARAYAN(https://github.com/Naaru-01)"
