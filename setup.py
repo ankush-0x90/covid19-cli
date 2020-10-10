@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 setup(
     name='covid19-cli',
     author="Ankush Patil",
-    version="1.1.1",
+    version="1.1.2",
     url="https://github.com/asprazz/covid19-cli",
     description="A CLI for getting covid19 status at lightning speed.",
     packages=["covid19"],
